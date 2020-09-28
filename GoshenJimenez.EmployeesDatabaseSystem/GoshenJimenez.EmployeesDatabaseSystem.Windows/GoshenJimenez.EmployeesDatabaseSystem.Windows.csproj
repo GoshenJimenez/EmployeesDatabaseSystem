@@ -87,6 +87,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\EmployeesDBContext.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Enums\Assignment.cs" />
     <Compile Include="Models\Enums\Status.cs" />
