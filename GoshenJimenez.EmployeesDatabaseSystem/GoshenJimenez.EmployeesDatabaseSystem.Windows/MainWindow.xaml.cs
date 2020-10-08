@@ -25,14 +25,20 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows
         {
             InitializeComponent();
 
-            EmployeesDBContext context = new EmployeesDBContext();
+            //EmployeesDBContext context = new EmployeesDBContext();
 
-            var employee = context.Employees.FirstOrDefault();
+            //var employee = context.Employees.FirstOrDefault();
 
-            if(employee != null)
-            {
-                MessageBox.Show(employee.EmailAddress);
-            }
+            //if(employee != null)
+            //{
+            //    MessageBox.Show(employee.EmailAddress);
+            //}
+        }
+
+        private void btnEmployees_Click(object sender, RoutedEventArgs e)
+        {
+            Employees.List listWindow = new Employees.List();
+            listWindow.Show();
         }
     }
 }

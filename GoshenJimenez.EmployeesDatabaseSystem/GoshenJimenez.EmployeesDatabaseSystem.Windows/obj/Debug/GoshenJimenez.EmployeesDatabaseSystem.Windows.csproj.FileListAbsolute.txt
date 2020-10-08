@@ -22,3 +22,5 @@ C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\GoshenJimenez.EmployeesDatabaseSystem.Windows.csproj.CopyComplete
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\GoshenJimenez.EmployeesDatabaseSystem.Windows.exe
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\GoshenJimenez.EmployeesDatabaseSystem.Windows.pdb
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\List.g.cs
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\List.baml
