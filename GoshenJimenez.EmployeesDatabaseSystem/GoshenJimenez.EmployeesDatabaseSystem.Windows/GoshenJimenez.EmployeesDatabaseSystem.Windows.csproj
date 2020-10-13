@@ -97,6 +97,7 @@
     <Compile Include="Employees\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Paged.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Enums\Assignment.cs" />
     <Compile Include="Models\Enums\Status.cs" />

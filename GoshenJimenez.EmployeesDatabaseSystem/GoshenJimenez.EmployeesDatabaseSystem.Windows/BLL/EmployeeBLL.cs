@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,24 +12,37 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
     {
         private static EmployeesDBContext db = new EmployeesDBContext();
 
-        public static List<Models.Employee> GetList(string sortBy = "lastname", string sortOrder = "asc")
+        public static Paged<Models.Employee> Search(int pageIndex = 1, int pageSize = 1, string sortBy = "lastname", string sortOrder = "asc")
         {
+            Paged<Models.Employee> employees = new Paged<Models.Employee>();
+            var queryCount = db.Employees.Count();
+            var skip = pageSize * (pageIndex - 1);
+
+            long pageCount = (long)Math.Ceiling((decimal)(queryCount/pageSize));
+
             if (sortBy.ToLower() == "lastname" && sortOrder.ToLower() == "asc")
             {
-                return db.Employees.OrderBy(e => e.LastName).ToList();
+                employees.Items = db.Employees.OrderBy(e => e.LastName).Skip(skip).Take(pageSize).ToList();
             }
             else if (sortBy.ToLower() == "lastname" && sortOrder.ToLower() == "desc")
             {
-                return db.Employees.OrderByDescending(e => e.LastName).ToList();
+                employees.Items = db.Employees.OrderByDescending(e => e.LastName).Skip(skip).Take(pageSize).ToList();
             }
             else if (sortBy.ToLower() == "salary" && sortOrder.ToLower() == "asc")
             {
-                return db.Employees.OrderBy(e => e.Salary).ToList();
+                employees.Items = db.Employees.OrderBy(e => e.Salary).Skip(skip).Take(pageSize).ToList();
             }
             else
             {
-                return db.Employees.OrderByDescending(e => e.Salary).ToList();
+                employees.Items = db.Employees.OrderByDescending(e => e.Salary).Skip(skip).Take(pageSize).ToList();
             }
+
+            employees.PageCount = pageCount;
+            employees.QueryCount = queryCount;
+            employees.PageIndex = pageIndex;
+            employees.PageSize = pageSize;
+
+            return employees;
         }
 
         

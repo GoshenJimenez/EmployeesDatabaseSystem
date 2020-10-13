@@ -22,6 +22,9 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
     {
         private string sortBy = "lastname";
         private string sortOrder = "asc";
+        private int pageSize = 1;
+        private int pageIndex = 1;
+        private long pageCount = 1;
         public List()
         {
             InitializeComponent();
@@ -40,7 +43,10 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void showData()
         {
-            dgEmployees.ItemsSource = EmployeeBLL.GetList(sortBy, sortOrder);
+            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder);
+
+            dgEmployees.ItemsSource = employees.Items;
+            pageCount = employees.PageCount;
         }
 
         private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -53,6 +59,48 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
             {
                 sortOrder = "desc";
             }
+            showData();
+        }
+
+        private void btnFirst_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = 1;
+            showData();
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageIndex - 1;
+            if(pageIndex < 1)
+            {
+                pageIndex = 1;
+            };
+            showData();
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = pageIndex + 1;
+            if (pageIndex > pageCount)
+            {
+                pageIndex = (int)pageCount;
+            };
+            showData();
+        }
+
+        private void btnLast_Click(object sender, RoutedEventArgs e)
+        {
+            pageIndex = (int)pageCount;
+            showData();
+        }
+
+        private void txtPageSize_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtPageSize.Text.Length > 0)
+            {
+                int.TryParse(txtPageSize.Text, out pageSize);
+            }
+
             showData();
         }
     }
