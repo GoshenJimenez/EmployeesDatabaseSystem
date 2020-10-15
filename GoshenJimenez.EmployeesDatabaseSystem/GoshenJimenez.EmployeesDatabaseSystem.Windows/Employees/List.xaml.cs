@@ -22,6 +22,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
     {
         private string sortBy = "lastname";
         private string sortOrder = "asc";
+        private string filterAssignment = "";
         private int pageSize = 1;
         private int pageIndex = 1;
         private long pageCount = 1;
@@ -31,7 +32,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
             cboSortBy.ItemsSource = new List<string>() { "Salary", "LastName" };
             cboSortOrder.ItemsSource = new List<string>() { "Ascending", "Descending" };
-            
+            cboFilterAssignment.ItemsSource = new List<string>() { "None", "Field", "Office" };
             showData();
         }
 
@@ -43,7 +44,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void showData()
         {
-            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder);
+            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment);
 
             dgEmployees.ItemsSource = employees.Items;
             pageCount = employees.PageCount;
@@ -101,6 +102,23 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                 int.TryParse(txtPageSize.Text, out pageSize);
             }
 
+            showData();
+        }
+
+        private void cboFilterAssignment_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboFilterAssignment.SelectedValue.ToString().ToLower() == "office")
+            {
+                filterAssignment = "office";
+            }
+            else if (cboFilterAssignment.SelectedValue.ToString().ToLower() == "field")
+            {
+                filterAssignment = "field";
+            }
+            else
+            {
+                filterAssignment = "";
+            }
             showData();
         }
     }
