@@ -24,6 +24,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
         private string sortOrder = "asc";
         private string filterAssignment = "";
         private string filterStatus = "";
+        private string keyword = "";
         private int pageSize = 1;
         private int pageIndex = 1;
         private long pageCount = 1;
@@ -46,7 +47,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void showData()
         {
-            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment, filterStatus);
+            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment, filterStatus, keyword);
 
             dgEmployees.ItemsSource = employees.Items;
             pageCount = employees.PageCount;
@@ -139,6 +140,15 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                 filterStatus = "";
             }
             showData();
+        }
+
+        private void txtKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                keyword = txtKeyword.Text;
+                showData();
+            }
         }
     }
 }
