@@ -23,6 +23,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
         private string sortBy = "lastname";
         private string sortOrder = "asc";
         private string filterAssignment = "";
+        private string filterStatus = "";
         private int pageSize = 1;
         private int pageIndex = 1;
         private long pageCount = 1;
@@ -33,6 +34,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
             cboSortBy.ItemsSource = new List<string>() { "Salary", "LastName" };
             cboSortOrder.ItemsSource = new List<string>() { "Ascending", "Descending" };
             cboFilterAssignment.ItemsSource = new List<string>() { "None", "Field", "Office" };
+            cboFilterStatus.ItemsSource = new List<string>() { "None", "Regular", "Probationary" };
             showData();
         }
 
@@ -44,7 +46,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void showData()
         {
-            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment);
+            var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment, filterStatus);
 
             dgEmployees.ItemsSource = employees.Items;
             pageCount = employees.PageCount;
@@ -118,6 +120,23 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
             else
             {
                 filterAssignment = "";
+            }
+            showData();
+        }
+
+        private void cboFilterStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cboFilterStatus.SelectedValue.ToString().ToLower() == "regular")
+            {
+                filterStatus = "regular";
+            }
+            else if (cboFilterStatus.SelectedValue.ToString().ToLower() == "probationary")
+            {
+                filterStatus = "probationary";
+            }
+            else
+            {
+                filterStatus = "";
             }
             showData();
         }

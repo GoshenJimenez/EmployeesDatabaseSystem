@@ -14,7 +14,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
     {
         private static EmployeesDBContext db = new EmployeesDBContext();
 
-        public static Paged<Models.Employee> Search(int pageIndex = 1, int pageSize = 1, string sortBy = "lastname", string sortOrder = "asc", string assignment = "")
+        public static Paged<Models.Employee> Search(int pageIndex = 1, int pageSize = 1, string sortBy = "lastname", string sortOrder = "asc", string assignment = "", string status = "")
         {
             IQueryable<Employee> allEmployees = (IQueryable<Employee>)db.Employees;
             Paged<Models.Employee> employees = new Paged<Models.Employee>();
@@ -22,6 +22,11 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
             if (!string.IsNullOrEmpty(assignment))
             {
                 allEmployees = allEmployees.Where(e => e.Assignment.ToString().ToLower() == assignment.ToLower());
+            }
+
+            if (!string.IsNullOrEmpty(status))
+            {
+                allEmployees = allEmployees.Where(e => e.Status.ToString().ToLower() == status.ToLower());
             }
 
             var queryCount = allEmployees.Count();

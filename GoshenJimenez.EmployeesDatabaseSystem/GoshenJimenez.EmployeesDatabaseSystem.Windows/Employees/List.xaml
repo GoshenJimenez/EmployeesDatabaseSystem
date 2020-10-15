@@ -7,19 +7,20 @@
         mc:Ignorable="d"
         Title="List" Height="412.667" Width="800">
     <Grid Margin="0,0,-0.4,-2">
-        <DataGrid x:Name="dgEmployees" HorizontalAlignment="Left" Height="214" Margin="35,71,0,0" VerticalAlignment="Top" Width="704" />
+        <DataGrid x:Name="dgEmployees" HorizontalAlignment="Left" Height="214" Margin="35,78,0,0" VerticalAlignment="Top" Width="704" />
         <ComboBox x:Name="cboSortOrder" HorizontalAlignment="Left" Margin="618,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboSortOrder_SelectionChanged"/>
         <Label x:Name="lblSortOrder" Content="Sort Order" HorizontalAlignment="Left" Height="29" Margin="526,10,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.783,0.576"/>
         <ComboBox x:Name="cboSortBy" HorizontalAlignment="Left" Margin="396,10,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboSortBy_SelectionChanged"/>
         <Label x:Name="lblSortBy" Content="Sort By" HorizontalAlignment="Left" Height="29" Margin="304,10,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.783,0.576"/>
-        <Button x:Name="btnFirst" Content="First" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="35,309,0,0" Click="btnFirst_Click"/>
-        <Button x:Name="btnLast" Content="Last" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="275,309,0,0" Click="btnLast_Click"/>
-        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="195,309,0,0" RenderTransformOrigin="0.615,2.311" Click="btnNext_Click"/>
-        <Button x:Name="btnPrevious" Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="115,309,0,0" Click="btnPrevious_Click"/>
-        <TextBox x:Name="txtPageSize" Text="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Margin="115,332,0,0" TextChanged="txtPageSize_TextChanged"/>
-        <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,332,0,0"/>
-        <ComboBox x:Name="cboFilterAssignment" HorizontalAlignment="Left" Margin="127,37,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboFilterAssignment_SelectionChanged"/>
-        <Label x:Name="lblFilters" Content="Filters" HorizontalAlignment="Left" Height="29" Margin="35,37,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.783,0.576"/>
+        <Button x:Name="btnFirst" Content="First" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="35,316,0,0" Click="btnFirst_Click"/>
+        <Button x:Name="btnLast" Content="Last" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="275,316,0,0" Click="btnLast_Click"/>
+        <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="195,316,0,0" RenderTransformOrigin="0.615,2.311" Click="btnNext_Click"/>
+        <Button x:Name="btnPrevious" Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="115,316,0,0" Click="btnPrevious_Click"/>
+        <TextBox x:Name="txtPageSize" Text="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Margin="115,339,0,0" TextChanged="txtPageSize_TextChanged"/>
+        <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,339,0,0"/>
+        <ComboBox x:Name="cboFilterAssignment" HorizontalAlignment="Left" Margin="127,44,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboFilterAssignment_SelectionChanged"/>
+        <Label x:Name="lblFilters" Content="Filters" HorizontalAlignment="Left" Height="29" Margin="35,44,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.783,0.576"/>
+        <ComboBox x:Name="cboFilterStatus" HorizontalAlignment="Left" Margin="271,44,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboFilterStatus_SelectionChanged"/>
 
     </Grid>
 </Window>
