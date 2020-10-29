@@ -79,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Employees\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Employees\List.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -94,9 +98,13 @@
     <Compile Include="BLL\EmployeeBLL.cs" />
     <Compile Include="DAL\DataInitializer.cs" />
     <Compile Include="DAL\EmployeesDBContext.cs" />
+    <Compile Include="Employees\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\List.xaml.cs">
       <DependentUpon>List.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Operation.cs" />
     <Compile Include="Helpers\Paged.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Enums\Assignment.cs" />

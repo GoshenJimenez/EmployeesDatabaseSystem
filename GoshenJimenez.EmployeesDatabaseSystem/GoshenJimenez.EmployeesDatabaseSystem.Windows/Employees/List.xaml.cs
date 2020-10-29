@@ -25,7 +25,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
         private string filterAssignment = "";
         private string filterStatus = "";
         private string keyword = "";
-        private int pageSize = 1;
+        private int pageSize = 5;
         private int pageIndex = 1;
         private long pageCount = 1;
         public List()
@@ -45,7 +45,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
             showData();
         }
 
-        private void showData()
+        public void showData()
         {
             var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment, filterStatus, keyword);
 
@@ -149,6 +149,12 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                 keyword = txtKeyword.Text;
                 showData();
             }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            Add addWindow = new Employees.Add(this);
+            addWindow.Show();
         }
     }
 }

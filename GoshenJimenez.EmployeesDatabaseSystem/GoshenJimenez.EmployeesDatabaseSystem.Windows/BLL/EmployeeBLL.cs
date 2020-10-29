@@ -64,6 +64,28 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
             return employees;
         }
 
-        
+        public static Operation Add(Employee employee)
+        {
+            try
+            {
+                db.Employees.Add(employee);
+                db.SaveChanges();
+
+                return new Operation()
+                {
+                    Code = "200",
+                    Message = "Ok",
+                    ReferenceId = employee.Id
+                };
+            }
+            catch(Exception e)
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = e.Message
+                };
+            }
+        }
     }
 }

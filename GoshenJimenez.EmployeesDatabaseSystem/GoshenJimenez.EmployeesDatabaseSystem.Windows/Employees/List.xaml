@@ -16,12 +16,13 @@
         <Button x:Name="btnLast" Content="Last" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="275,316,0,0" Click="btnLast_Click"/>
         <Button x:Name="btnNext" Content="Next" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="195,316,0,0" RenderTransformOrigin="0.615,2.311" Click="btnNext_Click"/>
         <Button x:Name="btnPrevious" Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="115,316,0,0" Click="btnPrevious_Click"/>
-        <TextBox x:Name="txtPageSize" Text="1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Margin="115,339,0,0" TextChanged="txtPageSize_TextChanged"/>
+        <TextBox x:Name="txtPageSize" Text="5" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Margin="115,339,0,0" TextChanged="txtPageSize_TextChanged"/>
         <Label x:Name="lblPageSize" Content="Page Size" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="35,339,0,0"/>
         <ComboBox x:Name="cboFilterAssignment" HorizontalAlignment="Left" Margin="473,44,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboFilterAssignment_SelectionChanged"/>
         <Label x:Name="lblFilters" Content="Filters" HorizontalAlignment="Left" Height="29" Margin="35,44,0,0" VerticalAlignment="Top" Width="87" RenderTransformOrigin="0.783,0.576"/>
         <ComboBox x:Name="cboFilterStatus" HorizontalAlignment="Left" Margin="617,44,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboFilterStatus_SelectionChanged"/>
         <TextBox x:Name="txtKeyword" HorizontalAlignment="Left" Height="23" Margin="89,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="363" KeyDown="txtKeyword_KeyDown"/>
+        <Button x:Name="btnAdd" Content="Add New" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="18" Margin="662,316,0,0" Click="btnAdd_Click"/>
 
     </Grid>
 </Window>
