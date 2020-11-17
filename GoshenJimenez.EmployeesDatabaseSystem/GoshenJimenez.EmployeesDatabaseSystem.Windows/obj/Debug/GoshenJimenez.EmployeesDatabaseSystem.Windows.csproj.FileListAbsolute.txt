@@ -26,3 +26,5 @@ C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\List.baml
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Add.g.cs
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Add.baml
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Update.g.cs
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Update.baml

@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,10 +48,13 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         public void showData()
         {
+
+
             var employees = EmployeeBLL.Search(pageIndex, pageSize, sortBy, sortOrder, filterAssignment, filterStatus, keyword);
 
             dgEmployees.ItemsSource = employees.Items;
             pageCount = employees.PageCount;
+
         }
 
         private void cboSortOrder_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -155,6 +159,13 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
         {
             Add addWindow = new Employees.Add(this);
             addWindow.Show();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = ((FrameworkElement)sender).DataContext as Employee;
+            Update updateForm = new Update(employee, this);
+            updateForm.Show();
         }
     }
 }

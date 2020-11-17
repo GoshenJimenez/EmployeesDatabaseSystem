@@ -87,5 +87,46 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
                 };
             }
         }
+
+        public static Operation Update(Employee newRecord)
+        {
+            try
+            {
+                Employee oldRecord = db.Employees.FirstOrDefault(e => e.Id == newRecord.Id);
+
+                if(oldRecord != null)
+                {
+                    oldRecord.Assignment = newRecord.Assignment;
+                    oldRecord.EmailAddress = newRecord.EmailAddress;
+                    oldRecord.FirstName = newRecord.FirstName;
+                    oldRecord.LastName = newRecord.LastName;
+                    oldRecord.Salary = newRecord.Salary;
+                    oldRecord.Status = newRecord.Status;
+
+                    db.SaveChanges();
+
+                    return new Operation()
+                    {
+                        Code = "200",
+                        Message = "OK"
+                    };
+                }
+
+
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Not found"
+                };
+            }
+            catch(Exception e)
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = e.Message
+                };
+            }
+        }
     }
 }
