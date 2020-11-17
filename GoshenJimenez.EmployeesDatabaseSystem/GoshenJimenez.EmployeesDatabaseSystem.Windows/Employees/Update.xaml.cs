@@ -33,8 +33,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
             cboAssignment.ItemsSource = new List<string>() { "None", "Field", "Office" };
             cboStatus.ItemsSource = new List<string>() { "None", "Regular", "Probationary" };
 
-            cboAssignment.SelectedValue = thisEmployee.Assignment;
-            cboStatus.SelectedValue = thisEmployee.Status;
+            cboAssignment.SelectedValue = thisEmployee.Assignment.ToString();
+            cboStatus.SelectedValue = thisEmployee.Status.ToString();
             txtFirstName.Text = thisEmployee.FirstName;
             txtLastName.Text = thisEmployee.LastName;
             txtSalary.Text = thisEmployee.Salary.ToString();
