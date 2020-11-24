@@ -188,5 +188,26 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                 }
             };
         }
+
+        private void btnDeactivate_Click(object sender, RoutedEventArgs e)
+        {
+            Employee employee = ((FrameworkElement)sender).DataContext as Employee;
+
+            if (MessageBox.Show("Are you sure you want to deactivate " + employee.FirstName + " " + employee.LastName + "?",
+                        "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                var op = EmployeeBLL.Deactivate(employee.Id);
+
+                if (op.Code != "200")
+                {
+                    MessageBox.Show("Error : " + op.Message);
+                }
+                else
+                {
+                    MessageBox.Show("Employee is successfully deactivated from table");
+                    showData();
+                }
+            };
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
     {
         public EmployeesDBContext() : base("myConnectionString")
         {
-           // Database.SetInitializer(new GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL.DataInitializer());
+            Database.SetInitializer(new GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL.DataInitializer());
         }
 
         public DbSet<Models.Employee> Employees { get; set; }

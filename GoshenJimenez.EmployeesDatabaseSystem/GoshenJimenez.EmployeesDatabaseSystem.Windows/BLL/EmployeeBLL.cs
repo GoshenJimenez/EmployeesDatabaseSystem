@@ -19,6 +19,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
             IQueryable<Employee> allEmployees = (IQueryable<Employee>)db.Employees;
             Paged<Models.Employee> employees = new Paged<Models.Employee>();
 
+            allEmployees = allEmployees.Where(e => e.IsActive == true);
+
             if (!string.IsNullOrEmpty(assignment))
             {
                 allEmployees = allEmployees.Where(e => e.Assignment.ToString().ToLower() == assignment.ToLower());
@@ -68,6 +70,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
         {
             try
             {
+                employee.IsActive = true;
                 db.Employees.Add(employee);
                 db.SaveChanges();
 
@@ -102,6 +105,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
                     oldRecord.LastName = newRecord.LastName;
                     oldRecord.Salary = newRecord.Salary;
                     oldRecord.Status = newRecord.Status;
+                    oldRecord.IsActive = true;
 
                     db.SaveChanges();
 
@@ -138,6 +142,41 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
                 if (oldRecord != null)
                 {
                     db.Employees.Remove(oldRecord);
+
+                    db.SaveChanges();
+
+                    return new Operation()
+                    {
+                        Code = "200",
+                        Message = "OK"
+                    };
+                }
+
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Not found"
+                };
+            }
+            catch (Exception e)
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = e.Message
+                };
+            }
+        }
+
+        public static Operation Deactivate(Guid? employeeId)
+        {
+            try
+            {
+                Employee oldRecord = db.Employees.FirstOrDefault(e => e.Id == employeeId);
+
+                if (oldRecord != null)
+                {
+                    oldRecord.IsActive = false;                   
 
                     db.SaveChanges();
 

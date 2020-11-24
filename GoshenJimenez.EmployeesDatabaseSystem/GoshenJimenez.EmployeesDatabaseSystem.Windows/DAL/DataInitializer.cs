@@ -18,7 +18,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
                 Assignment = Models.Enums.Assignment.Office,
                 EmailAddress = "jbeleren@mailinator.com",
                 Salary = decimal.Parse("100000"),
-                Status = Models.Enums.Status.Regular
+                Status = Models.Enums.Status.Regular,
+                IsActive = true
             });
 
             context.Employees.Add(new Models.Employee()
@@ -29,7 +30,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
                 Assignment = Models.Enums.Assignment.Field,
                 EmailAddress = "lvess@mailinator.com",
                 Salary = decimal.Parse("120000"),
-                Status = Models.Enums.Status.Probationary
+                Status = Models.Enums.Status.Probationary,
+                IsActive = true
             });
 
             context.SaveChanges();

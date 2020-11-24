@@ -22,5 +22,6 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Models
         public Status Status { get; set; }
 
         public Assignment Assignment { get; set; }
+        public bool IsActive { get; set; }
     }
 }
