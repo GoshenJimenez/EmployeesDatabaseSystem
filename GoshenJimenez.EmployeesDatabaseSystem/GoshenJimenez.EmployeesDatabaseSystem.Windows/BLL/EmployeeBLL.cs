@@ -128,5 +128,40 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
                 };
             }
         }
+
+        public static Operation Delete(Guid? employeeId)
+        {
+            try
+            {
+                Employee oldRecord = db.Employees.FirstOrDefault(e => e.Id == employeeId);
+
+                if (oldRecord != null)
+                {
+                    db.Employees.Remove(oldRecord);
+
+                    db.SaveChanges();
+
+                    return new Operation()
+                    {
+                        Code = "200",
+                        Message = "OK"
+                    };
+                }
+
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Not found"
+                };
+            }
+            catch (Exception e)
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = e.Message
+                };
+            }
+        }
     }
 }
