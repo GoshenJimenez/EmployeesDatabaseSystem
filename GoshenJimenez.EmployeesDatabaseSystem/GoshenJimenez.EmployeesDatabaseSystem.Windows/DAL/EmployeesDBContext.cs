@@ -15,6 +15,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
         }
 
         public DbSet<Models.Employee> Employees { get; set; }
+        public DbSet<Models.EmployeeRole> EmployeeRoles { get; set; }
 
     }
 }

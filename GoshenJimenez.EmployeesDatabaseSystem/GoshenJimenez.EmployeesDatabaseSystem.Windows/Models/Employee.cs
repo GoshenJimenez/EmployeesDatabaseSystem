@@ -17,6 +17,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Models
 
         public string EmailAddress { get; set; }
 
+        public string Password { get; set; }
+
         public decimal Salary { get; set; }
 
         public Status Status { get; set; }

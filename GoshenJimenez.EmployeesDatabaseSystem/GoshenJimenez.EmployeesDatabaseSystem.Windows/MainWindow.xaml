@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnEmployees" Content="Employees" HorizontalAlignment="Left" Margin="31,34,0,0" VerticalAlignment="Top" Width="198" Height="30" Click="btnEmployees_Click"/>
+        <Button x:Name="btnEmployees" Content="Employees" HorizontalAlignment="Left" Margin="30,86,0,0" VerticalAlignment="Top" Width="198" Height="30" Click="btnEmployees_Click"/>
+        <Label x:Name="lblUserName" Content="" HorizontalAlignment="Left" Margin="322,10,0,0" VerticalAlignment="Top" Width="347" FontSize="20"/>
+        <Button x:Name="btnLogout" Content="Logout" HorizontalAlignment="Left" Margin="674,10,0,0" VerticalAlignment="Top" Width="110" Height="30" Click="btnLogout_Click"/>
     </Grid>
 </Window>

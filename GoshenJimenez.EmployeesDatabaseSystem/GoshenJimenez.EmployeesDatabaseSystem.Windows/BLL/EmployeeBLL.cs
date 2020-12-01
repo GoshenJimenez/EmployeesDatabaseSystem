@@ -1,12 +1,14 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Helpers;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Configuration.Install;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BCrypt = DevOne.Security.Cryptography.BCrypt;
 
 namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
 {
@@ -168,6 +170,16 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
             }
         }
 
+        public static Employee GetById(Guid? id)
+        {
+            return db.Employees.FirstOrDefault(e => e.Id == id);
+        }
+
+        public static List<UserRole> GetRoles(Guid? id)
+        {
+            return db.EmployeeRoles.Where(r => r.EmployeeId == id).Select(r => r.UserRole).ToList();
+        }
+
         public static Operation Deactivate(Guid? employeeId)
         {
             try
@@ -191,6 +203,66 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
                 {
                     Code = "500",
                     Message = "Not found"
+                };
+            }
+            catch (Exception e)
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = e.Message
+                };
+            }
+        }
+
+
+        public static Operation Login(string emailAddress = "", string password = "")
+        {
+            if (string.IsNullOrEmpty(emailAddress))
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Invalid Login"
+                };
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Invalid Login"
+                };
+            }
+
+            try
+            {
+                Employee user = db.Employees.FirstOrDefault(e => e.EmailAddress.ToLower() == emailAddress.ToLower());
+
+                if (user == null)
+                {
+                    return new Operation()
+                    {
+                        Code = "500",
+                        Message = "Invalid Login"
+                    };
+                }
+
+                if (BCrypt.BCryptHelper.CheckPassword(password, user.Password))
+                {
+                    return new Operation()
+                    {
+                        Code = "200",
+                        Message = "Successful Login",
+                        ReferenceId = user.Id
+                    };
+                }
+
+                return new Operation()
+                {
+                    Code = "500",
+                    Message = "Invalid Login"
                 };
             }
             catch (Exception e)

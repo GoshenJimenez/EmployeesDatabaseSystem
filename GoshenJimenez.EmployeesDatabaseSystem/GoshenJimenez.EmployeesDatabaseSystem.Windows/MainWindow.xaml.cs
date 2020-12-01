@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,20 +26,28 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows
         {
             InitializeComponent();
 
-            //EmployeesDBContext context = new EmployeesDBContext();
-
-            //var employee = context.Employees.FirstOrDefault();
-
-            //if(employee != null)
-            //{
-            //    MessageBox.Show(employee.EmailAddress);
-            //}
+            lblUserName.Content = "Welcome, " + ProgramUser.FullName;
         }
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
             Employees.List listWindow = new Employees.List();
             listWindow.Show();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            ProgramUser.Id = null;
+            ProgramUser.FirstName = null;
+            ProgramUser.LastName = null;
+            ProgramUser.EmailAddress = null;
+            ProgramUser.Roles = null;
+
+            LoginWindow login = new LoginWindow();
+            login.Show();
+
+            this.Close();
+
         }
     }
 }
