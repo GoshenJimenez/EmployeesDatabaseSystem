@@ -39,6 +39,55 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            List<string> errors = new List<string>();
+            if (string.IsNullOrEmpty(txtFirstName.Text))
+            {
+                errors.Add("First Name is required.");
+            };
+
+            if (string.IsNullOrEmpty(txtLastName.Text))
+            {
+                errors.Add("Last Name is required.");
+            };
+
+            if (string.IsNullOrEmpty(txtLastName.Text))
+            {
+                errors.Add("Email Address is required.");
+            };
+
+            if (string.IsNullOrEmpty(txtLastName.Text))
+            {
+                errors.Add("Salary is required.");
+            };
+
+            if (cboAssignment.SelectedValue == null)
+            {
+                errors.Add("Please select an Assignment.");
+            }
+
+            if (cboStatus.SelectedValue == null)
+            {
+                errors.Add("Please select a Status.");
+            }
+
+            decimal salary = 0;            
+            if (!decimal.TryParse(txtSalary.Text, out salary))
+            {
+                errors.Add("Please enter a valid decimal for Salary.");
+            }
+
+            if (errors.Count > 0)
+            {
+                foreach (var error in errors)
+                {
+                    txtbErrors.Text = txtbErrors.Text + error + "\n";
+                }
+
+                return;
+            }
+
+
+
             Assignment assignment = Assignment.Field;
             if(cboAssignment.SelectedValue.ToString().ToLower() == "office")
             {
@@ -51,13 +100,12 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                 status = Status.Probationary;
             }
 
-
             var op = EmployeeBLL.Add(new Employee()
             {
                 Id = Guid.NewGuid(),
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text,
-                Salary = decimal.Parse(txtSalary.Text),
+                Salary = salary,
                 EmailAddress = txtEmailAddress.Text,
                 Status = status,
                 Assignment = assignment

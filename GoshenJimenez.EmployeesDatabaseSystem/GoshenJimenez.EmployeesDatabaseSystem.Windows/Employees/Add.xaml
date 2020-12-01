@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees"
         mc:Ignorable="d"
-        Title="Add" Height="356.476" Width="485.542">
+        Title="Add" Height="405.276" Width="485.542">
     <Grid>
         <Label x:Name="lblFormHeader" Content="Add new Employee" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="24" Height="42" Width="214"/>
         <Label x:Name="lblFirstName" Content="FirstName" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
@@ -20,8 +20,9 @@
         <ComboBox x:Name="cboStatus" HorizontalAlignment="Left" Margin="167,220,0,0" VerticalAlignment="Top" Width="268" Grid.ColumnSpan="2"/>
         <Label x:Name="lblAssignment" Content="Assignment" HorizontalAlignment="Left" Margin="10,194,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
         <Label x:Name="lblStatus" Content="Status" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="157" Height="26"/>
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="256,267,0,0" VerticalAlignment="Top" Width="179" Height="32" Click="btnAdd_Click"/>
-        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="45,267,0,0" VerticalAlignment="Top" Width="179" Height="32" Click="btnCancel_Click"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="256,320,0,0" VerticalAlignment="Top" Width="179" Height="32" Click="btnAdd_Click"/>
+        <Button x:Name="btnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="45,320,0,0" VerticalAlignment="Top" Width="179" Height="32" Click="btnCancel_Click"/>
+        <TextBlock x:Name="txtbErrors" HorizontalAlignment="Left" Margin="167,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="68" Width="268" Foreground="#FFFC0909" FontSize="10"/>
 
     </Grid>
 </Window>
