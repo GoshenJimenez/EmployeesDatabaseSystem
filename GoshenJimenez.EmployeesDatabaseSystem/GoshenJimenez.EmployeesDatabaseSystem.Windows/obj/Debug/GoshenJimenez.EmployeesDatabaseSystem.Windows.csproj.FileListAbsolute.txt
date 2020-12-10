@@ -31,3 +31,5 @@ C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\LoginWindow.g.cs
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\LoginWindow.baml
 C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\bin\Debug\DevOne.Security.Cryptography.BCrypt.dll
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Deductions.g.cs
+C:\Users\goshe\OneDrive\Documents\Personal\EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem\GoshenJimenez.EmployeesDatabaseSystem.Windows\obj\Debug\Employees\Deductions.baml

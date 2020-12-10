@@ -17,8 +17,12 @@
                       Binding="{Binding EmailAddress}" Width="*" />
                 <DataGridTextColumn Header="Status"
                       Binding="{Binding Status}" Width="*" />
-                <DataGridTextColumn Header="Salary"
+                <DataGridTextColumn Header="Gross Salary"
                       Binding="{Binding Salary}" Width="*" />
+                <DataGridTextColumn Header="Deductions"
+                      Binding="{Binding Deductions}" Width="*" />
+                <DataGridTextColumn Header="Net Salary"
+                      Binding="{Binding NetSalary}" Width="*" />
                 <DataGridTextColumn Header="Assignment"
                       Binding="{Binding Assignment}" Width="*" />
                 <DataGridTemplateColumn>
@@ -39,6 +43,13 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button x:Name="btnDeactivate" Click="btnDeactivate_Click">Deactivate</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDeductions" Click="btnDeductions_Click">Show Deductions</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

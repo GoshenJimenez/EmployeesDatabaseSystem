@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.DataTransferObjects;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Helpers;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models.Enums;
@@ -16,7 +17,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
     {
         private static EmployeesDBContext db = new EmployeesDBContext();
 
-        public static Paged<Models.Employee> Search(int pageIndex = 1, int pageSize = 1, string sortBy = "lastname", string sortOrder = "asc", string assignment = "", string status = "", string keyword = "")
+        public static Paged<EmployeeDto> Search(int pageIndex = 1, int pageSize = 1, string sortBy = "lastname", string sortOrder = "asc", string assignment = "", string status = "", string keyword = "")
         {
             IQueryable<Employee> allEmployees = (IQueryable<Employee>)db.Employees;
             Paged<Models.Employee> employees = new Paged<Models.Employee>();
@@ -65,7 +66,38 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL
             employees.PageIndex = pageIndex;
             employees.PageSize = pageSize;
 
-            return employees;
+            var result = new Paged<EmployeeDto>();
+            result.PageCount = pageCount;
+            result.QueryCount = queryCount;
+            result.PageIndex = pageIndex;
+            result.PageSize = pageSize;
+            result.Items = new List<EmployeeDto>();
+
+            foreach(var employee in employees.Items)
+            {
+                var deductions = db.EmployeeDeductions.Include("Deduction").Where(e => e.EmployeeId == employee.Id).ToList();
+                decimal totalDeductions = 0;
+
+                foreach(var deduction in deductions)
+                {
+                    totalDeductions = totalDeductions + deduction.Deduction.Price;
+                }
+
+                result.Items.Add(new EmployeeDto()
+                {
+                    Id = employee.Id,
+                    Deductions = totalDeductions,
+                    Salary = employee.Salary,
+                    Status = employee.Status,
+                    Assignment = employee.Assignment,
+                    EmailAddress = employee.EmailAddress,
+                    FirstName = employee.FirstName,
+                    IsActive = employee.IsActive,
+                    LastName = employee.LastName,
+                });
+            }
+
+            return result;
         }
 
         public static Operation Add(Employee employee)

@@ -37,7 +37,6 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
                 IsActive = true
             });
 
-
             context.EmployeeRoles.Add(new Models.EmployeeRole()
             {
                 Id= Guid.NewGuid(),
@@ -57,6 +56,84 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.DAL
                 Id = Guid.NewGuid(),
                 EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063562"),
                 UserRole = Models.Enums.UserRole.Regular
+            });
+
+            context.Deductions.Add(new Models.Deduction()
+            {
+                Id = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10901"),
+                Name = "SSS",
+                Price = decimal.Parse("500")
+            });
+
+            context.Deductions.Add(new Models.Deduction()
+            {
+                Id = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10902"),
+                Name = "PhilHealth",
+                Price = decimal.Parse("300")
+            });
+
+            context.Deductions.Add(new Models.Deduction()
+            {
+                Id = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10903"),
+                Name = "Pagibig",
+                Price = decimal.Parse("200")
+            });
+
+            context.Deductions.Add(new Models.Deduction()
+            {
+                Id = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10904"),
+                Name = "Cash bond",
+                Price = decimal.Parse("150")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063561"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10901")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063561"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10902")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063561"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10903")
+            });
+
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063562"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10901")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063562"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10902")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063562"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10903")
+            });
+
+            context.EmployeeDeductions.Add(new Models.EmployeeDeduction()
+            {
+                Id = Guid.NewGuid(),
+                EmployeeId = Guid.Parse("56bac4c3-ef14-4f17-905d-5fb554063562"),
+                DeductionId = Guid.Parse("31b87ccb-9864-459d-b1c2-9792a3d10904")
             });
 
             context.SaveChanges();

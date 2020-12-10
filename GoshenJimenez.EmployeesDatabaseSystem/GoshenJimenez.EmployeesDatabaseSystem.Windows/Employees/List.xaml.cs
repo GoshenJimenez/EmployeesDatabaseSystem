@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.DataTransferObjects;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models;
 using System;
 using System.Collections.Generic;
@@ -163,14 +164,14 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Employee employee = ((FrameworkElement)sender).DataContext as Employee;
+            EmployeeDto employee = ((FrameworkElement)sender).DataContext as EmployeeDto;
             Update updateForm = new Update(employee, this);
             updateForm.Show();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            Employee employee = ((FrameworkElement)sender).DataContext as Employee;
+            EmployeeDto employee = ((FrameworkElement)sender).DataContext as EmployeeDto;
 
             if (MessageBox.Show("Are you sure you want to delete " + employee.FirstName + " " + employee.LastName + "?",
                         "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -191,7 +192,7 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
 
         private void btnDeactivate_Click(object sender, RoutedEventArgs e)
         {
-            Employee employee = ((FrameworkElement)sender).DataContext as Employee;
+            EmployeeDto employee = ((FrameworkElement)sender).DataContext as EmployeeDto;
 
             if (MessageBox.Show("Are you sure you want to deactivate " + employee.FirstName + " " + employee.LastName + "?",
                         "Are you sure?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
@@ -208,6 +209,13 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
                     showData();
                 }
             };
+        }
+
+        private void btnDeductions_Click(object sender, RoutedEventArgs e)
+        {
+            EmployeeDto employee = ((FrameworkElement)sender).DataContext as EmployeeDto;
+            Deductions deductionsForm = new Deductions(employee);
+            deductionsForm.Show();
         }
     }
 }

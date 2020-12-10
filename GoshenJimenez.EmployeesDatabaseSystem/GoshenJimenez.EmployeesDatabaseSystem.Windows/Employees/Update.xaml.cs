@@ -1,4 +1,5 @@
 ﻿using GoshenJimenez.EmployeesDatabaseSystem.Windows.BLL;
+using GoshenJimenez.EmployeesDatabaseSystem.Windows.DataTransferObjects;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models;
 using GoshenJimenez.EmployeesDatabaseSystem.Windows.Models.Enums;
 using System;
@@ -23,8 +24,8 @@ namespace GoshenJimenez.EmployeesDatabaseSystem.Windows.Employees
     public partial class Update : Window
     {
         List myParentWindow = new List();
-        private Employee thisEmployee;
-        public Update(Employee employee, List parentWindow)
+        private EmployeeDto thisEmployee;
+        public Update(EmployeeDto employee, List parentWindow)
         {
             InitializeComponent();
             thisEmployee = employee;
